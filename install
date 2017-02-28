@@ -6,12 +6,12 @@ PACKAGE_PATH=`pwd`; IFS='/'; read -ra ARR <<< "$PACKAGE_PATH"; IFS=';'	# IFS = i
 N=`expr ${#ARR[*]} - 1`
 PACKAGE_NAME=${ARR[$N]}				# package name, which is the name of this script's parent folder
 VENV=$HOME/.venv/$PACKAGE_NAME		# virtualenv location
-PYTHON=$VENV/bin/python 			# the virtualenv's python interpreter
+PYTHON=$VENV/bin/pypy3 				# the virtualenv's python interpreter
 PACKAGE_PARAMS=$1					# any package config parameters can be passed via $1: JSON object string
 
 # create a python virtual environment for this package
 echo "creating virtual environment in $VENV"
-python3 -m virtualenv $VENV
+/Users/sah/bin/pypy3-v5.5.0-osx64/bin/pypy3 -m virtualenv $VENV
 SYMLINK=$PACKAGE_PATH/venv 			# so you can type "source venv" in the package directory
 if [ -e $SYMLINK ]; then 
 	rm $SYMLINK
