@@ -1,2 +1,2 @@
-# continuator-python
+# continuator
 Continuations in Stackless Python
